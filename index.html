@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimaBlock - Smart Contract Solutions</title>
+    <style>
+        :root {
+            --primary: #0066cc;
+            --secondary: #4d94ff;
+            --dark: #333333;
+            --light: #f5f8fa;
+            --white: #ffffff;
+            --gray: #6c757d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            width: 160px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo svg {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            fill: var(--primary);
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .hero {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .notice {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 10px auto 0;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-text {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .feature {
+            flex: 0 0 calc(33.333% - 30px);
+            margin: 15px;
+            background-color: var(--white);
+            border-radius: 5px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .feature p {
+            color: var(--gray);
+        }
+
+        .team {
+            background-color: var(--white);
+        }
+
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .team-member {
+            flex: 0 0 calc(50% - 30px);
+            margin: 15px;
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            background-color: #e9ecef;
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .technology {
+            background-color: var(--light);
+        }
+
+        .security-features {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .security-item {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .security-item:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .security-item strong {
+            color: var(--primary);
+        }
+
+        .contact {
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+        }
+
+        .contact-item i {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .contact-item a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--secondary);
+        }
+
+        footer {
+            background-color: #222;
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .feature {
+                flex: 0 0 calc(100% - 30px);
+            }
+
+            .team-member {
+                flex: 0 0 calc(100% - 30px);
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="logo">
+            <svg viewBox="0 0 36 30" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="nonzero" d="M35.202 21.615l-4.87-8.492a.498.498 0 0 0-.43-.25h-4.187l2.08-3.629a.505.505 0 0 0 0-.502L22.925.251A.498.498 0 0 0 22.494 0h-9.736a.498.498 0 0 0-.432.25L7.457 8.743a.505.505 0 0 0 0 .502l2.08 3.629h-4.17a.498.498 0 0 0-.431.25l-4.87 8.493a.505.505 0 0 0 0 .502l4.87 8.491c.089.155.253.251.431.251h9.737a.498.498 0 0 0 .432-.25l2.098-3.662 2.099 3.66c.089.156.253.251.431.251h9.737a.498.498 0 0 0 .432-.25l4.869-8.492a.505.505 0 0 0 0-.502zm-1.295-.25H25.32l-4.293-7.49h8.587l4.293 7.49zm-13.743-8.492a.498.498 0 0 0-.431.25l-2.213 3.86h-3.9l4.294-7.488H26.5l-1.937 3.378h-4.4zm6.337-4.381h-8.588L13.62 1.003h8.587L26.5 8.492zM12.758 1.505l4.293 7.488-4.293 7.489-4.294-7.489 4.294-7.488zm-.432 16.23c.09.156.254.251.432.251h4.64l1.752 3.379h-8.626l-4.294-7.49h3.883l2.213 3.861zM1.073 21.868l4.294-7.489 4.293 7.489-4.293 7.488-4.294-7.488zm13.743 7.99H6.23l4.293-7.489h8.587l-4.294 7.489zm3.393-3.912l2.195-3.828a.506.506 0 0 0 .01-.483l-2.095-4.038 1.845-3.218 4.293 7.489-4.293 7.488-1.955-3.41zm11.404 3.912h-8.586l4.293-7.489h8.587l-4.293 7.489z"/>
+            </svg>
+            <span class="logo-text">PrimaBlock</span>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>Smart Contract Solutions for Pool Management</h1>
+        <p>Automating accounting and remittance via secure Ethereum smart contracts</p>
+        <div class="notice">
+            <strong>IMPORTANT NOTICE:</strong> PrimaBlock is not accepting new customers. Existing customers can continue using their deployed smart contracts as usual.
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="container">
+        <h2>About PrimaBlock</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>PrimaBlock started as a passion project to learn about smart contracts on Ethereum. Our focus is on automating the accounting and remittance work involved in managing pools through the use of smart contracts.</p>
+                <p>Using PrimaBlock, you can deploy a smart contract on the Ethereum network. The person who deploys the smart contract is called the "pool creator." The smart contract can only be administered by the pool creator and anyone else nominated by the pool creator. In other words, the pool creator has custody of the funds.</p>
+                <p>Licensing our smart contract technology reduces the risk of accounting and remittance errors. Also, the smart contracts ensure that the custody of the funds is held by the pool creator.</p>
+            </div>
+        </div>
+        <div class="features">
+            <div class="feature">
+                <h3>Smart Contracts</h3>
+                <p>Deploy custom Ethereum smart contracts for pool management with ease</p>
+            </div>
+            <div class="feature">
+                <h3>Pool Management</h3>
+                <p>Maintain full control as the pool creator with custody of your funds</p>
+            </div>
+            <div class="feature">
+                <h3>Error Reduction</h3>
+                <p>Minimize accounting and remittance errors through automation</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="team" id="team">
+    <div class="container">
+        <h2>Our Team</h2>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="https://web.archive.org/web/20230620162949oe_/https://primablock.com/assets/team/mickael.webp" alt="Mickael Fourgeaud">
+                <h3>Mickael Fourgeaud</h3>
+                <p>Co-founder & CEO</p>
+            </div>
+            <div class="team-member">
+                <img src="https://web.archive.org/web/20240821050628oe_/https://primablock.com/assets/team/tamir.webp" alt="Tamir Sen">
+                <h3>Tamir Sen</h3>
+                <p>Co-founder & CTO</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="technology" id="technology">
+    <div class="container">
+        <h2>Secure Technology</h2>
+        <div class="security-features">
+            <div class="security-item">
+                <p>Your funds are safe thanks to our proprietary <strong>battle-tested</strong> smart-contract technology.</p>
+            </div>
+            <div class="security-item">
+                <p>Security is the top priority at PrimaBlock. We have <strong>periodic</strong> security audits from top experts in the field.</p>
+            </div>
+            <div class="security-item">
+                <p>We also have a bug bounty program and are actively working on new security innovations.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i>✉</i>
+                <p>Email: <a href="mailto:info@primablock.com">info@primablock.com</a></p>
+            </div>
+            <div class="contact-item">
+                <i>📍</i>
+                <p>Narva mnt 5, 10117 Tallinn, Estonia</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 PrimaBlock. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
